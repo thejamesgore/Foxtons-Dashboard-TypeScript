@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 const startServer = async () => {
   try {
     app.listen(8080, () => {
-      console.log('[SERVER]: Server started http://localhost:8008')
+      console.log('[SERVER]: Server started http://localhost:8080')
     })
   } catch (error) {
     console.log(error)
@@ -24,3 +24,5 @@ const startServer = async () => {
 }
 
 startServer()
+
+export default app
