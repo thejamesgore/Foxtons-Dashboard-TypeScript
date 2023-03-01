@@ -6,7 +6,10 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "jest  --config=jest.config.js"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+  },
+  "jest": {
+    "transform": {}
   },
   "keywords": [],
   "author": "",
