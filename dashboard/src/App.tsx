@@ -1,5 +1,8 @@
 import React from "react";
 
+import './global.css'
+
+
 import { Refine, AuthProvider } from "@pankod/refine-core";
 import {
   notificationProvider,
