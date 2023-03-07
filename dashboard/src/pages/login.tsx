@@ -37,14 +37,14 @@ export const Login: React.FC = () => {
       }
     }, []); // you can also add your client id as dependency here
 
-    return <div ref={divRef} />;
+    return <div ref={divRef} style={{ top: '100px' }} />;
   };
 
   return (
     <Box
       component="div"
       sx={{
-        background: `#fcfcfc`,
+        background: `#017062`,
 
       }}
     >
