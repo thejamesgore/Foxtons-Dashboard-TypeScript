@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Box,
   Drawer,
@@ -12,6 +12,7 @@ import {
   IconButton,
   MuiList,
 } from "@pankod/refine-mui";
+import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
 import {
   ListOutlined,
   Logout,
@@ -34,11 +35,14 @@ import {
   useRefineContext,
 } from "@pankod/refine-core";
 
+import { ColorModeContext } from "contexts";
+
 import { Title as DefaultTitle } from "../title";
 
 export const Sider: typeof DefaultSider = ({ render }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [opened, setOpened] = useState(false);
+  const { mode} = useContext(ColorModeContext);
 
   const drawerWidth = () => {
     if (collapsed) return 64;
@@ -364,7 +368,7 @@ export const Sider: typeof DefaultSider = ({ render }) => {
             display: { sm: "block", md: "none" },
             "& .MuiDrawer-paper": {
               width: 256,
-              bgcolor: "#FCFCFC",
+              bgcolor: `${ mode === 'dark' ? '#000' : "#017062" }`,
             },
           }}
         >
@@ -387,10 +391,11 @@ export const Sider: typeof DefaultSider = ({ render }) => {
             display: { xs: "none", md: "block" },
             "& .MuiDrawer-paper": {
               width: drawerWidth,
-              bgcolor: "#017062",
+              bgcolor: `${ mode === 'dark' ? '#000' : "#017062" }`,
               overflow: "hidden",
               transition: "width 200ms cubic-bezier(0.4, 0, 0.6, 1) 0ms",
-              color: '#fcfcfc'
+              // HERE
+              color: '#017062'
             },
           }}
           open
@@ -405,6 +410,7 @@ export const Sider: typeof DefaultSider = ({ render }) => {
           >
             <RenderToTitle collapsed={collapsed} />
           </Box>
+         
           <Box
             sx={{
               flexGrow: 1,
@@ -414,6 +420,7 @@ export const Sider: typeof DefaultSider = ({ render }) => {
           >
             {drawer}
           </Box>
+              
           <Button
             sx={{
               background: "#5d9b69",
@@ -439,13 +446,13 @@ export const Sider: typeof DefaultSider = ({ render }) => {
             top: "64px",
             left: "0px",
             borderRadius: "0 6px 6px 0",
-            bgcolor: "#fcfcfc",
+            bgcolor: "#017062",
             zIndex: 1199,
             width: "36px",
           }}
         >
           <IconButton
-            sx={{ color: "#fff", width: "36px" }}
+            sx={{ color: "#fffe01", width: "36px" }}
             onClick={() => setOpened((prev) => !prev)}
           >
             <MenuRounded />
