@@ -20,12 +20,15 @@ export const Header: React.FC = () => {
 
   return shouldRenderHeader ? (
     <AppBar color="default" position="sticky" elevation={1}>
-      <Toolbar>
+      <Toolbar 
+        
+      >
         <Stack
           direction="row"
           width="100%"
           justifyContent="flex-end"
           alignItems="center"
+          
         >
           <IconButton
             onClick={() => {

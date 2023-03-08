@@ -235,7 +235,7 @@ export const Sider: typeof DefaultSider = ({ render }) => {
             setOpened(false);
           }}
           sx={{
-            pl: 2,
+            pl: 2.5,
             py: 1,
             "&.Mui-selected": {
               "&:hover": {
