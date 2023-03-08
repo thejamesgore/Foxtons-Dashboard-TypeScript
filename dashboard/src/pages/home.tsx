@@ -1,41 +1,44 @@
-import {useList} from '@pankod/refine-core'
+import React, { useContext } from "react";
+import { useList } from '@pankod/refine-core'
 import { Box, Typography, Stack} from '@pankod/refine-mui'
 
+import { ColorModeContext } from "contexts";
+import { PieChart, PropertyReferrals, TotalRevenue, InfoChart, } from 'components'
 
-import { PieChart, PropertyReferrals, TotalRevenue, PropertyCard,TopAgent } from 'components'
+const Home = () => {
+   const { mode } = useContext(ColorModeContext);
 
-const home = () => {
   return (
     <Box>
       <Typography 
         fontSize={25}
         fontWeight={700}
-        color="#11142D"
+        color={mode === 'dark' ? '#fcfcfc' : '#11142D' }  
       >Dashboard</Typography>
       <Box mt="20px" display="flex" flexWrap="wrap" gap={4}>
+        <InfoChart 
+          title="Portfolio value"
+          value='£67,497,384'
+
+        />
+
        <PieChart 
-          title="Properties for Sale"
-          value={684}
-          series={[75, 25]}
+          title="Properties in portfolio"
+          value={84}
+          series={[0, 0]}
           colors={['#275be8', '#c4e8ef']}
         />
         <PieChart 
-          title="Properties for Rent"
-          value={550}
-          series={[60, 40]}
-          colors={['#275be8', '#c4e8ef']}
+          title="Properties with tennants"
+          value={67}
+          series={[79, 21]}
+          colors={['#017062', '#77bc52']}
         />
         <PieChart 
-          title="Total customers"
-          value={5684}
-          series={[75, 25]}
-          colors={['#275be8', '#c4e8ef']}
-        />
-        <PieChart 
-          title="Properties for Cities"
-          value={555}
-          series={[75, 25]}
-          colors={['#275be8', '#c4e8ef']}
+          title="Commercial vs Residential Properties"
+          value={23}
+          series={[27, 73]}
+          colors={['#017062', '#77bc52']}
         />
       </Box>
 
@@ -53,4 +56,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home

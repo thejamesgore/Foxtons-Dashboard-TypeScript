@@ -4,6 +4,7 @@ import PropertyCard from './common/PropertyCard'
 import CustomButton from './common/CustomButton';
 
 // charts
+import InfoChart from './charts/InfoChart';
 import PieChart from './charts/PieChart';
 import PropertyReferrals from './charts/PropertyReferrals';
 import TotalRevenue from './charts/TotalRevenue';
@@ -18,6 +19,7 @@ export {
   Profile,
   PropertyCard,
   CustomButton,
+  InfoChart,
   PieChart,
   PropertyReferrals,
   TotalRevenue,
