@@ -1,27 +1,28 @@
-export const propertyReferralsInfo = [
+export const contractProgressInfo = [
   {
-    title: 'Social Media',
-    percentage: 64,
-    color: '#6C5DD3',
+    title: 'Adams Row, Mayfair, W1K',
+    percentage: 60,
+    color: 'rgb(42,121,66,0.85)',
   },
   {
-    title: 'Marketplace',
+    title: 'Bathurst Street, Hyde Park Estate, W2',
     percentage: 40,
-    color: '#7FBA7A',
+    color: 'rgb(42,121,66,0.65)',
   },
   {
-    title: 'Websites',
+    title: 'Elgin Avenue, Maida Vale, W9',
     percentage: 50,
-    color: '#FFCE73',
+    color: 'rgb(42,121,66,0.775)',
   },
   {
-    title: 'Digital Ads',
+    title: 'Headfort Place, Belgravia, SW1X',
     percentage: 80,
-    color: '#FFA2C0',
+    color: 'rgb(42,121,66,1)',
   },
   {
-    title: 'Others',
-    percentage: 15,
-    color: '#F45252',
+    title: 'Maida Vale, Maida Vale, W9',
+    percentage: 20,
+    color: 'rgb(42,121,66,0.5)',
   },
 ];
+

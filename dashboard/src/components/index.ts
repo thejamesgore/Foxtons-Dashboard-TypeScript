@@ -6,7 +6,7 @@ import CustomButton from './common/CustomButton';
 // charts
 import InfoChart from './charts/InfoChart';
 import PieChart from './charts/PieChart';
-import PropertyReferrals from './charts/PropertyReferrals';
+import ContractProgress from './charts/ContractProgress';
 import TotalRevenue from './charts/TotalRevenue';
 
 // agent
@@ -21,7 +21,7 @@ export {
   CustomButton,
   InfoChart,
   PieChart,
-  PropertyReferrals,
+  ContractProgress,
   TotalRevenue,
   AgentCard,
   TopAgent,

@@ -1,6 +1,6 @@
 import { Typography, Stack, Box } from '@pankod/refine-mui'
 import ReactApexChart from 'react-apexcharts'
-import { ArrowCircleUpRounded } from '@mui/icons-material'
+import { ArrowCircleDownRounded } from '@mui/icons-material'
 
 import { TotalRevenueOptions, TotalRevenueSeries } from './chart.config'
 
@@ -20,7 +20,7 @@ const TotalRevenue = () => {
         fontWeight={600}
         color='#11142d'
       >
-        Total Revenue
+        Total Revenue YTD
       </Typography>
       <Stack
         my="20px"
@@ -32,25 +32,25 @@ const TotalRevenue = () => {
           fontSize={28}
           fontWeight={700}
           color='#11142d'
-        >¢236,535</Typography>
+        >£8,236,535</Typography>
         <Stack
           direction="row"
           alignItems="center"
           gap={1}
         >
-          <ArrowCircleUpRounded
+          <ArrowCircleDownRounded
             sx={{
               fontSize: 25,
-              color: '#475be8'
+              color: '#017062'
             }}/>
             <Stack
             
             >
               <Typography
                 fontSize={15}
-                color='#475be8'
+                color='#017062'
               >
-                0.8%
+                11.8%
               </Typography>
               <Typography
                 fontSize={12}
