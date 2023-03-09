@@ -35,6 +35,8 @@ axiosInstance.interceptors.request.use((request: AxiosRequestConfig) => {
   return request;
 });
 
+const SERVER_URL = ( process.env.REACT_APP_SERVER_URL as string )
+
 function App() {
   const authProvider: AuthProvider = {
     login: async ({ credential }: CredentialResponse) => {
@@ -42,7 +44,7 @@ function App() {
 
 
       if (profileObj) {
-        const response = await fetch('http://localhost:8080/api/v1/users', {
+        const response = await fetch(SERVER_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'appilcation/json'},
           body: JSON.stringify({

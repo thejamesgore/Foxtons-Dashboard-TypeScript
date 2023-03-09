@@ -3,7 +3,7 @@ import { useList } from '@pankod/refine-core'
 import { Box, Typography, Stack} from '@pankod/refine-mui'
 
 import { ColorModeContext } from "contexts";
-import { PieChart, PropertyReferrals, TotalRevenue, InfoChart, } from 'components'
+import { PieChart, ContractProgress, TotalRevenue, InfoChart, } from 'components'
 
 const Home = () => {
    const { mode } = useContext(ColorModeContext);
@@ -35,9 +35,9 @@ const Home = () => {
           colors={['#017062', '#77bc52']}
         />
         <PieChart 
-          title="Commercial vs Residential Properties"
-          value={23}
-          series={[27, 73]}
+          title="Properties on the market"
+          value={16}
+          series={[16, 84]}
           colors={['#017062', '#77bc52']}
         />
       </Box>
@@ -48,7 +48,7 @@ const Home = () => {
         gap={4}
         direction={{xs: 'column', lg: 'row'}}>
           <TotalRevenue />
-          <PropertyReferrals />
+          <ContractProgress />
 
       </Stack>
       
