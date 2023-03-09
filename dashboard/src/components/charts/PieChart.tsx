@@ -1,17 +1,20 @@
 import { Typography, Stack, Box } from '@pankod/refine-mui'
-import React from 'react'
+import React, { useContext } from "react";
 import ReactApexChart from 'react-apexcharts'
 
 import { PieChartProps } from 'interfaces/home'
+import { ColorModeContext } from "contexts";
 
 
 const PieChart = ({title, value, series, colors}: PieChartProps) => {
+  const { mode } = useContext(ColorModeContext);
+
   return (
     <Box
       id="chart"
       flex={1}
       display="flex"
-      bgcolor="#fcfcfc"
+      bgcolor={mode === 'dark' ? '#000' : '#fcfcfc'}
       flexDirection="row"
       justifyContent="space-between"
       alignItems="center"
@@ -25,12 +28,12 @@ const PieChart = ({title, value, series, colors}: PieChartProps) => {
       <Stack direction="column">
         <Typography
           fontSize={14}
-          color="#808191">
+          color={mode === 'dark' ? '#FFF' : '#808191'}>
             {title}
         </Typography>
       <Typography
         fontSize={24}
-        color="#11142d"
+        color={mode === 'dark' ? '#FFF' : '#808191'}
         mt={1}
       >{value}</Typography>
       </Stack>

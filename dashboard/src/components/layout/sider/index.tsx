@@ -42,7 +42,7 @@ import { Title as DefaultTitle } from "../title";
 export const Sider: typeof DefaultSider = ({ render }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [opened, setOpened] = useState(false);
-  const { mode} = useContext(ColorModeContext);
+  const { mode } = useContext(ColorModeContext);
 
   const drawerWidth = () => {
     if (collapsed) return 64;

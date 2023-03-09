@@ -21,13 +21,12 @@ const Home = () => {
           value='£67,497,384'
 
         />
-
-       <PieChart 
+        <InfoChart 
           title="Properties in portfolio"
-          value={84}
-          series={[0, 0]}
-          colors={['#275be8', '#c4e8ef']}
+          value='84'
+
         />
+
         <PieChart 
           title="Properties with tennants"
           value={67}

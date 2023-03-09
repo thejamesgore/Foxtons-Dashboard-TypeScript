@@ -1,15 +1,75 @@
+import React, { useContext } from "react";
 import { Typography, Stack, Box } from '@pankod/refine-mui'
+import { ApexOptions } from 'apexcharts';
 import ReactApexChart from 'react-apexcharts'
 import { ArrowCircleDownRounded } from '@mui/icons-material'
 
-import { TotalRevenueOptions, TotalRevenueSeries } from './chart.config'
+import {  TotalRevenueSeries } from './chart.config'
+import { ColorModeContext } from "contexts";
+
+
 
 const TotalRevenue = () => {
+  const { mode } = useContext(ColorModeContext);
+
+  const TotalRevenueOptions: ApexOptions = {
+
+  
+  chart: {
+    type: 'bar',
+    toolbar: {
+      show: false,
+    },
+  },
+  colors: [  '#017062', '#67be23'],
+  plotOptions: {
+    bar: {
+      borderRadius: 4,
+      horizontal: false,
+      columnWidth: '55%',
+    },
+  },
+  dataLabels: {
+    enabled: false,
+    
+  },
+  grid: {
+    show: false,
+  },
+  stroke: {
+    colors: ['transparent'],
+    width: 4,
+  },
+  xaxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',],
+    
+  },
+  yaxis: {
+    title: {
+      text: '£ (thousands)',
+    },
+  },
+  fill: {
+    opacity: 1,
+  },
+  legend: {
+    position: 'top',
+    horizontalAlign: 'right',
+  },
+  tooltip: {
+    y: {
+      formatter(val: number) {
+        return `£ ${val} thousands`;
+      },
+    },
+  },
+};
+
   return (
     <Box
       p={4}
       flex={1}
-      bgcolor='#fcfcfc'
+      bgcolor={mode === 'dark' ? '#000' : '#fcfcfc'}
       id='chart'
       display='flex'
       flexDirection='column'
@@ -18,7 +78,7 @@ const TotalRevenue = () => {
       <Typography
         fontSize={18}
         fontWeight={600}
-        color='#11142d'
+        color={mode === 'dark' ? '#FFF' : '#11142d'}
       >
         Total Revenue YTD
       </Typography>
@@ -31,7 +91,7 @@ const TotalRevenue = () => {
         <Typography
           fontSize={28}
           fontWeight={700}
-          color='#11142d'
+          color={mode === 'dark' ? '#FFF' : '#11142d'}
         >£8,236,535</Typography>
         <Stack
           direction="row"
@@ -54,7 +114,7 @@ const TotalRevenue = () => {
               </Typography>
               <Typography
                 fontSize={12}
-                color='#808191'
+                color={mode === 'dark' ? '#FFF' : '#808191'}
               >
                 Than last month
               </Typography>
