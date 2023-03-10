@@ -33,7 +33,7 @@ const PieChart = ({title, value, series, colors}: PieChartProps) => {
         </Typography>
       <Typography
         fontSize={24}
-        color={mode === 'dark' ? '#FFF' : '#808191'}
+        color={mode === 'dark' ? '#FFF' : '#000'}
         mt={1}
       >{value}</Typography>
       </Stack>

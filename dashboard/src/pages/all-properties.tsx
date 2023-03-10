@@ -8,8 +8,6 @@ import { PropertyCard, CustomButton } from "components"
 const AllProperties = () => {
   const navigate = useNavigate()
 
-
-
   return (
     <Box>
       <Stack 
@@ -23,10 +21,10 @@ const AllProperties = () => {
             <CustomButton 
               title="Add Property"
               handleClick={() => navigate('/properties/create')}
-              backgroundColor="#475be8"
+              backgroundColor="#017062"
               color="#fcfcfc"
               icon={<Add />}/>
-                All Properties
+
           </Typography>
         </Stack>
     </Box>

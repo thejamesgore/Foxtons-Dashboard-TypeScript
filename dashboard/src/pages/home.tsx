@@ -48,7 +48,6 @@ const Home = () => {
         direction={{xs: 'column', lg: 'row'}}>
           <TotalRevenue />
           <ContractProgress />
-
       </Stack>
       
     </Box>

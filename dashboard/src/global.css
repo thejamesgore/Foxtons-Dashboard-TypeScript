@@ -44,3 +44,7 @@ a {
         height: auto;
     }
 }
+
+.btn-upload:hover {
+    background-color: black;
+}
