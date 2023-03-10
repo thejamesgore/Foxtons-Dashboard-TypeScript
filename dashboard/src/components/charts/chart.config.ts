@@ -1,6 +1,8 @@
 import { ApexOptions } from 'apexcharts';
 
+
 export const TotalRevenueSeries = [
+  
   {
     name: 'Last Month',
     data: [183, 124, 115, 85, 143, 143, 96],
@@ -12,6 +14,8 @@ export const TotalRevenueSeries = [
 ];
 
 export const TotalRevenueOptions: ApexOptions = {
+
+
   chart: {
     type: 'bar',
     toolbar: {
