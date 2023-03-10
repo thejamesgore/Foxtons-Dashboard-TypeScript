@@ -1,3 +1,4 @@
+import React, { useContext } from "react";
 import {
     Box,
     Typography,
@@ -11,6 +12,7 @@ import {
     Button,
 } from "@pankod/refine-mui";
 
+import { ColorModeContext } from "contexts";
 import { FormProps } from "interfaces/common";
 import CustomButton from "./CustomButton";
 
@@ -23,13 +25,15 @@ const Form = ({
     onFinishHandler,
     propertyImage,
 }: FormProps) => {
+       const { mode } = useContext(ColorModeContext);
     return (
+
         <Box>
-            <Typography fontSize={25} fontWeight={700} color="#11142d">
+            <Typography fontSize={25} fontWeight={700} color={mode === 'dark' ? '#FFF' : '#11142d'}>
                 {type} a Property
             </Typography>
 
-            <Box mt={2.5} borderRadius="15px" padding="20px" bgcolor="#fcfcfc">
+            <Box mt={2.5} borderRadius="15px" padding="20px" bgcolor={mode === 'dark' ? '#000' : '#fcfcfc'}>
                 <form
                     style={{
                         marginTop: "20px",
@@ -37,6 +41,7 @@ const Form = ({
                         display: "flex",
                         flexDirection: "column",
                         gap: "20px",
+
                     }}
                     onSubmit={handleSubmit(onFinishHandler)}
                 >
@@ -46,7 +51,7 @@ const Form = ({
                                 fontWeight: 500,
                                 margin: "10px 0",
                                 fontSize: 16,
-                                color: "#11142d",
+                                color: `${mode === 'dark' ? '#FFF' : "#11142d"}`,
                             }}
                         >
                             Enter property name
@@ -66,7 +71,7 @@ const Form = ({
                                 fontWeight: 500,
                                 margin: "10px 0",
                                 fontSize: 16,
-                                color: "#11142d",
+                                color: `${mode === 'dark' ? '#FCFCFC' : "#11142d"}`,
                             }}
                         >
                             Enter Description
@@ -75,6 +80,7 @@ const Form = ({
                             minRows={5}
                             required
                             placeholder="Write description"
+                            
                             color="info"
                             style={{
                                 width: "100%",
@@ -83,7 +89,7 @@ const Form = ({
                                 borderColor: "rgba(0,0,0,0.23)",
                                 borderRadius: 6,
                                 padding: 10,
-                                color: "#919191",
+                                color: `${mode === 'dark' ? '#FCFCFC' : "#11142d"}`,
                             }}
                             {...register("description", { required: true })}
                         />
@@ -96,7 +102,7 @@ const Form = ({
                                     fontWeight: 500,
                                     margin: "10px 0",
                                     fontSize: 16,
-                                    color: "#11142d",
+                                    color: `${mode === 'dark' ? '#FFF' : "#11142d"}`,
                                 }}
                             >
                                 Select Property Type
@@ -128,7 +134,7 @@ const Form = ({
                                     fontWeight: 500,
                                     margin: "10px 0",
                                     fontSize: 16,
-                                    color: "#11142d",
+                                    color: `${mode === 'dark' ? '#FFF' : "#11142d"}`,
                                 }}
                             >
                                 Enter property price
@@ -151,7 +157,7 @@ const Form = ({
                                 fontWeight: 500,
                                 margin: "10px 0",
                                 fontSize: 16,
-                                color: "#11142d",
+                                color: `${mode === 'dark' ? '#FFF' : "#11142d"}`,
                             }}
                         >
                             Enter Location
@@ -174,7 +180,7 @@ const Form = ({
                     >
                         <Stack direction="row" gap={2}>
                             <Typography
-                                color="#11142d"
+                                color={mode === 'dark' ? '#FFF' : '#11142d'}
                                 fontSize={16}
                                 fontWeight={500}
                                 my="10px"
@@ -186,9 +192,14 @@ const Form = ({
                                 component="label"
                                 sx={{
                                     width: "fit-content",
-                                    color: "#2ed480",
+                                    color: "#FCFCFC",
                                     textTransform: "capitalize",
                                     fontSize: 16,
+                                    background: '#017062',
+                                    paddingX: '20px',
+                                    '&:hover': {
+      backgroundColor: '#017062',
+    },
                                 }}
                             >
                                 Upload *
@@ -216,8 +227,9 @@ const Form = ({
                     <CustomButton
                         type="submit"
                         title={formLoading ? "Submitting..." : "Submit"}
-                        backgroundColor="#475be8"
-                        color="#fcfcfc"
+                        backgroundColor="#017062"
+                        color='#FCFCFC'
+                        // color={mode === 'dark' ? '#FFF' : '#11142d'}
                     />
                 </form>
             </Box>
