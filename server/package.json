@@ -6,7 +6,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --detectOpenHandles"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --detectOpenHandles",
+    "build": "server.js"
   },
   "jest": {
     "preset": "@shelf/jest-mongodb",
