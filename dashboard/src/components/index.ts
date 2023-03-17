@@ -19,6 +19,7 @@ export {
   Profile,
   PropertyCard,
   CustomButton,
+
   InfoChart,
   PieChart,
   ContractProgress,
