@@ -1,3 +1,5 @@
+import { useContext } from "react";
+
 import { EmailOutlined, LocationCity, Phone, Place } from "@mui/icons-material";
 import { useGetIdentity } from "@pankod/refine-core";
 import { Box, Stack, Typography } from "@pankod/refine-mui";
@@ -5,13 +7,15 @@ import { Link } from "@pankod/refine-react-router-v6";
 
 import { AgentCardProp, InfoBarProps } from "interfaces/agent";
 
+import { ColorModeContext } from "contexts";
+
 function checkImage(url: any) {
     const img = new Image();
     img.src = url;
     return img.width !== 0 && img.height !== 0;
 }
 
-const InfoBar = ({ icon, name }: InfoBarProps) => (
+const InfoBar = ({ icon, name, theme }: InfoBarProps) => (
     <Stack
         flex={1}
         minWidth={{ xs: "100%", sm: 300 }}
@@ -19,7 +23,7 @@ const InfoBar = ({ icon, name }: InfoBarProps) => (
         direction="row"
     >
         {icon}
-        <Typography fontSize={14} color="#808191">
+        <Typography fontSize={14} color={theme === 'dark' ? '#fcfcfc' : "#808191"}>
             {name}
         </Typography>
     </Stack>
@@ -32,6 +36,8 @@ const AgentCard = ({
     avatar,
     noOfProperties,
 }: AgentCardProp) => {
+    const { mode } = useContext(ColorModeContext)
+
     const { data: currentUser } = useGetIdentity();
 
     const generateLink = () => {
@@ -47,6 +53,7 @@ const AgentCard = ({
             width="100%"
             sx={{
                 display: "flex",
+                background: `${mode === 'dark' ? '#000' : ''}`,
                 flexDirection: { xs: "column", sm: "row" },
                 gap: "20px",
                 padding: "20px",
@@ -78,10 +85,10 @@ const AgentCard = ({
                     flexWrap="wrap"
                     alignItems="center"
                 >
-                    <Typography fontSize={22} fontWeight={600} color="#11142d">
+                    <Typography fontSize={22} fontWeight={600} color={mode === 'dark' ? '#fcfcfc' :"#11142d"}>
                         {name}
                     </Typography>
-                    <Typography fontSize={14} color="#808191">
+                    <Typography fontSize={14} color={mode === 'dark' ? '#fcfcfc' : "#808191"}>
                         Real-Estate Agent
                     </Typography>
                 </Stack>
@@ -93,20 +100,24 @@ const AgentCard = ({
                     gap={2}
                 >
                     <InfoBar
-                        icon={<EmailOutlined sx={{ color: "#808191" }} />}
+                        icon={<EmailOutlined sx={{ color: `${mode === 'dark' ? '#fcfcfc' : '#808191'}` }} />}
                         name={email}
-                    />
+                        theme={mode}
+                        />
                     <InfoBar
-                        icon={<Place sx={{ color: "#808191" }} />}
+                        icon={<Place sx={{ color: `${mode === 'dark' ? '#fcfcfc' : '#808191'}` }} />}
                         name="London"
-                    />
+                        theme={mode}
+                        />
                     <InfoBar
-                        icon={<Phone sx={{ color: "#808191" }} />}
+                        icon={<Phone sx={{ color: `${mode === 'dark' ? '#fcfcfc' : '#808191'}` }} />}
                         name="+502-3231-4141"
-                    />
+                        theme={mode}
+                        />
                     <InfoBar
-                        icon={<LocationCity sx={{ color: "#808191" }} />}
+                        icon={<LocationCity sx={{ color: `${mode === 'dark' ? '#fcfcfc' : '#808191'}` }} />}
                         name={`${noOfProperties} Properties`}
+                        theme={mode}
                     />
                 </Stack>
             </Stack>

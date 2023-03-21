@@ -10,5 +10,6 @@ export interface AgentCardProp {
 
 export interface InfoBarProps {
     icon: ReactNode,
-    name: string
+    name: string,
+    theme?: string,
 }

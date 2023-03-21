@@ -1,10 +1,16 @@
+import { useContext } from "react";
+
 import { useList } from "@pankod/refine-core";
 import { Box, Typography } from "@pankod/refine-mui";
 
 import { AgentCard } from "components";
 
+import { ColorModeContext } from "contexts";
+
 const Agents = () => {
     const { data, isLoading, isError } = useList({ resource: "users" });
+
+    const { mode } = useContext(ColorModeContext)
 
     const allAgents = data?.data ?? [];
 
@@ -13,7 +19,7 @@ const Agents = () => {
 
     return (
         <Box>
-            <Typography fontSize={25} fontWeight={700} color="#11142d">
+            <Typography fontSize={25} fontWeight={700} color={mode === 'dark' ? '#fcfcfc' :"#11142d"}>
                 Agents List
             </Typography>
 
