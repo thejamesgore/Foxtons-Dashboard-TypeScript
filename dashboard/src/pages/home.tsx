@@ -13,7 +13,8 @@ const Home = () => {
       <Typography 
         fontSize={25}
         fontWeight={700}
-        color={mode === 'dark' ? '#fcfcfc' : '#11142D' }  
+        color={mode === 'dark' ? '#fcfcfc' : '#11142D' }
+        align="center"
       >Dashboard</Typography>
       <Box mt="20px" display="flex" flexWrap="wrap" gap={4}>
         <InfoChart 

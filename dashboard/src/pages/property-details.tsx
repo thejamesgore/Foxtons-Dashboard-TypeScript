@@ -1,10 +1,13 @@
 /* eslint-disable no-restricted-globals */
+import { useContext } from 'react';
 import { Typography, Box, Stack } from '@pankod/refine-mui';
 import { useDelete, useGetIdentity, useShow } from '@pankod/refine-core';
 import { useParams, useNavigate } from '@pankod/refine-react-router-v6';
 import { ChatBubble, Delete, Edit, Phone, Place, Star } from '@mui/icons-material';
 
 import { CustomButton } from 'components';
+
+import { ColorModeContext } from 'contexts';
 
 function checkImage(url: any) {
   let img = new Image();
@@ -18,6 +21,7 @@ const PropertyDetails = () => {
   const { queryResult } = useShow();
   const { mutate } = useDelete();
   const { id } = useParams();
+  const { mode } = useContext(ColorModeContext)
 
   const { data, isLoading, isError } = queryResult;
 
@@ -50,11 +54,11 @@ const PropertyDetails = () => {
   return (
     <Box
       borderRadius="15px"
-      padding="80px"
-      bgcolor="#FCFCFC"
+      padding="20px"
+      bgcolor={mode === 'dark' ? '#000' :"#FCFCFC"}
       width="fit-content"
     >
-      <Typography fontSize={25} fontWeight={700} color="#11142D">Details</Typography>
+      <Typography fontSize={25} fontWeight={700} color={mode === 'dark' ? '#fcfcfc' : "#11142D"}>{propertyDetails.title}</Typography>
 
       <Box mt="20px" display="flex" flexDirection={{ xs: 'column', lg: 'row' }} gap={20}>
 
@@ -62,14 +66,14 @@ const PropertyDetails = () => {
           <img
             src={propertyDetails.photo}
             alt="property_details-img"
-            height={546}
+            height={510}
             style={{ objectFit: 'cover', borderRadius: '10px' }}
             className="property_details-img"
           />
 
           <Box mt="15px">
             <Stack direction="row" justifyContent="space-between" flexWrap="wrap" alignItems="center">
-              <Typography fontSize={18} fontWeight={500} color="#11142D" textTransform="capitalize">{propertyDetails.propertyType}</Typography>
+              <Typography fontSize={18} fontWeight={500} color={mode === 'dark' ? '#fcfcfc' : "#11142D"} textTransform="capitalize">{propertyDetails.propertyType}</Typography>
               <Box>
                 {[1, 2, 3, 4, 5].map((item) => <Star key={`star-${item}`} sx={{ color: '#F2C94C' }} />)}
               </Box>
@@ -77,25 +81,25 @@ const PropertyDetails = () => {
 
             <Stack direction="row" flexWrap="wrap" justifyContent="space-between" alignItems="center" gap={2}>
               <Box>
-                <Typography fontSize={22} fontWeight={600} mt="10px" color="#11142D">{propertyDetails.title}</Typography>
+                <Typography fontSize={22} fontWeight={600} mt="10px" color={mode === 'dark' ? '#fcfcfc' : "#11142D"}>{propertyDetails.title}</Typography>
                 <Stack mt={0.5} direction="row" alignItems="center" gap={0.5}>
-                  <Place sx={{ color: '#808191' }} />
-                  <Typography fontSize={14} color="#808191">{propertyDetails.location}</Typography>
+                  <Place sx={{ color: `${mode === 'dark' ? '#fcfcfc' : '#808191'}` }} />
+                  <Typography fontSize={14} color={mode === 'dark' ? '#fcfcfc' : '#808191'}>{propertyDetails.location}</Typography>
                 </Stack>
               </Box>
 
               <Box>
-                <Typography fontSize={16} fontWeight={600} mt="10px" color="#11142D">Price</Typography>
+                <Typography fontSize={16} fontWeight={600} mt="10px" color={mode === 'dark' ? '#fcfcfc' : "#11142D"}>Price</Typography>
                 <Stack direction="row" alignItems="flex-end" gap={1}>
-                  <Typography fontSize={25} fontWeight={700} color="#475BE8">${propertyDetails.price}</Typography>
-                  <Typography fontSize={14} color="#808191" mb={0.5}>for one day</Typography>
+                  <Typography fontSize={25} fontWeight={700} color="#017062">£{propertyDetails.price.toLocaleString()}</Typography>
+                  <Typography fontSize={14} color={mode === 'dark' ? '#fcfcfc' : '#808191'} mb={0.5}>Freehold</Typography>
                 </Stack>
               </Box>
             </Stack>
 
             <Stack mt="25px" direction="column" gap="10px">
-              <Typography fontSize={18} color="#11142D">Description</Typography>
-              <Typography fontSize={14} color="#808191">
+              <Typography fontSize={18} color={mode === 'dark' ? '#fcfcfc' : '#808191'}>Description</Typography>
+              <Typography fontSize={14} color={mode === 'dark' ? '#fcfcfc' : '#808191'}>
                 {propertyDetails.description}
               </Typography>
             </Stack>
@@ -123,22 +127,22 @@ const PropertyDetails = () => {
               />
 
               <Box mt="15px">
-                <Typography fontSize={18} fontWeight={600} color="#11142D">{propertyDetails.creator.name}</Typography>
-                <Typography mt="5px" fontSize={14} fontWeight={400} color="#808191">Agent</Typography>
+                <Typography fontSize={18} fontWeight={600} color={mode === 'dark' ? '#fcfcfc' : '#808191'}>{propertyDetails.creator.name}</Typography>
+                <Typography mt="5px" fontSize={14} fontWeight={400} color={mode === 'dark' ? '#fcfcfc' : '#808191'}>Agent</Typography>
               </Box>
 
               <Stack mt="15px" direction="row" alignItems="center" gap={1}>
                 <Place sx={{ color: '#808191' }} />
-                <Typography fontSize={14} fontWeight={400} color="#808191">North Carolina, USA</Typography>
+                <Typography fontSize={14} fontWeight={400} color={mode === 'dark' ? '#fcfcfc' : '#808191'}>London, UK</Typography>
               </Stack>
 
-              <Typography mt={1} fontSize={16} fontWeight={600} color="#11142D">{propertyDetails.creator.allProperties.length} Properties</Typography>
+              <Typography mt={1} fontSize={16} fontWeight={600} color={mode === 'dark' ? '#fcfcfc' : '#808191'}>{propertyDetails.creator.allProperties.length} Properties</Typography>
             </Stack>
 
             <Stack width="100%" mt="25px" direction="row" flexWrap="wrap" gap={2}>
               <CustomButton
                 title={!isCurrentUser ? 'Message' : 'Edit'}
-                backgroundColor="#475BE8"
+                backgroundColor="#017062"
                 color="#FCFCFC"
                 fullWidth
                 icon={!isCurrentUser ? <ChatBubble /> : <Edit />}
@@ -174,7 +178,7 @@ const PropertyDetails = () => {
           <Box>
             <CustomButton
               title="Book Now"
-              backgroundColor="#475BE8"
+              backgroundColor="#017062"
               color="#FCFCFC"
               fullWidth
             />
