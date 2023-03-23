@@ -144,11 +144,6 @@ function App() {
               show: AgentProfile,
               icon: <PeopleAltOutlined />,
             },
-            // {
-            //   name: "reviews",
-            //   list: Home,
-            //   icon: <StarOutlineRounded />,
-            // },
             {
               name: "messages",
               list: Home,

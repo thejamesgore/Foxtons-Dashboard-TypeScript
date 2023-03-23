@@ -13,6 +13,14 @@ export const Login: React.FC = () => {
     const divRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+      fetch(`https://orange-viper-gear.cyclic.app`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+      })
+    },[])
+
+    useEffect(() => {
       if (typeof window === "undefined" || !window.google || !divRef.current) {
         return;
       }
