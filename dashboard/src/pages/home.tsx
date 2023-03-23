@@ -29,7 +29,7 @@ const Home = () => {
         />
 
         <PieChart 
-          title="Properties with tennants"
+          title="Properties with tenants"
           value={67}
           series={[79, 21]}
           colors={['#017062', '#77bc52']}
