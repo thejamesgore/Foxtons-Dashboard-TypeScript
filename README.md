@@ -12,8 +12,6 @@
 - Featured Code
 - Bugs
 - Wins and Challenges
-- Key Learnings
-- Future Content and Improvements
 
 ## Project Overview
 
@@ -131,3 +129,35 @@ Congratulations, you have successfully installed and run the Foxtons Landlord Da
 - Prettier: A code formatter that helps enforce consistent code formatting across the project.
 - Git: A version control system that helps manage changes to the codebase and enables collaboration with other developers.
 - GitHub: A popular online platform for hosting and sharing code repositories and collaborating with other developers.
+
+## Bugs
+
+---
+
+During deployment there has only been one noticable bug, the host for the backend server would spin up and down to preserve resources. When a user initially clicked "login via Google" and went through the authentication steps, the backend server would not be running, so the authentication process couldn't complete.
+
+Solution: To fix this issue, I added the following code to the `login.tsx` page:
+
+```
+useEffect(() => {
+  fetch(`https://orange-viper-gear.cyclic.app`)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data)
+  })
+},[])
+```
+
+This code makes a simple GET request to the backend server at a predetermined URL. By doing this, we ensure that the backend server is running before the user tries to authenticate with Google. With this solution in place, users are now able to successfully authenticate with Google even if the backend server is initially down.
+
+## Wins and Challenges
+
+- Strong use of modern technologies: The dashboard utilizes a number of modern technologies, including React, Material-UI, and Refine, demonstrating a strong understanding of current web development practices.
+
+- Responsive design: The dashboard is designed to be responsive across a range of devices, ensuring that users can access and use the dashboard regardless of their device type or screen size with a global light/dark mode.
+
+- Robust testing suite: The dashboard includes a comprehensive testing suite utilizing Jest and React Testing Library, ensuring that the application is thoroughly tested and bugs are caught early in the development process.
+
+- Cloud-based hosting: The dashboard is hosted on a cloud-based platform, providing reliable and scalable hosting capabilities to ensure that the application is always available and responsive to users.
+
+- Clear and concise code: The code for the dashboard is clean, concise, and easy to read, making it easier for other developers to understand and work with the codebase.
