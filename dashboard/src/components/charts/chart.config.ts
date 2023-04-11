@@ -56,10 +56,7 @@ export const TotalRevenueOptions: ApexOptions = {
     horizontalAlign: 'right',
   },
   tooltip: {
-    y: {
-      formatter(val: number) {
-        return `£ ${val} thousands`;
-      },
-    },
+    enabled: false,
+   
   },
 };
